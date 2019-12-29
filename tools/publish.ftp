@@ -1,0 +1,5 @@
+open didi
+cd SecretVodkaProject
+cd scores
+binary
+put -Rf pub/pdf/*.pdf

@@ -1,0 +1,14 @@
+syntax: glob
+
+src/book/pdf/*pdf
+
+pub/pdf/*.pdf
+pub/pdf/*.ps
+
+*.aux
+*.log
+*.out
+*.toc
+
+*~
+*.swp

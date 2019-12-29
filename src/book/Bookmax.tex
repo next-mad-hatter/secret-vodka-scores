@@ -1,0 +1,126 @@
+\documentclass[a4paper]{book}
+%\usepackage{extsizes}
+
+% LaTeX+pdfpages cannot handle unicode characters (and blanks, anyway) in file names ?
+
+\usepackage[russian,french,ngerman,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage{fix-cm}
+\usepackage{lmodern}
+
+\usepackage[pdfauthor={Max Deineko},
+            pdftitle={Bookmax},
+            pdfsubject={},
+            pdfkeywords={},
+            pdfproducer={PdfLaTeX},
+            pdfcreator={PDFLaTeX},
+            colorlinks=true,
+            linkcolor=blue,
+            linktoc=section,
+            unicode
+            ]{hyperref}
+
+%\usepackage[extendedchars,encoding,filenameencoding=utf8]{grffile}
+\usepackage[extendedchars,space,babel]{grffile}
+\usepackage{pdfpages,graphics}
+\pdfinclusioncopyfonts=1
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,bottom=1.5cm]{geometry}
+
+\usepackage{ifthen}
+\usepackage{multicol}
+\usepackage[toc]{multitoc}
+
+\newcommand{\addblank}[0]{\thispagestyle{plain} \ \clearpage}
+\newcommand{\addscore}[2]{\phantomsection
+  \addcontentsline{toc}{chapter}{#2}
+  \includepdf[noautoscale,pagecommand={\thispagestyle{plain}},pages={-}]{#1}}
+%\newlength{\MaXw}
+\newcommand{\addpic}[2]{\begin{figure}
+  \begin{center}
+  \includegraphics[width=0.6\textwidth]{#1}
+  %\settowidth{\MaXw}{\includegraphics{#1}}
+  %\ifthenelse{\lengthtest{\MaXw > \textwidth}}{\includegraphics[width=2\textwidth]{#1}}{\includegraphics{#1}}
+  \end{center}
+  %\caption{#2} %\label{#3}
+  \end{figure}
+  \thispagestyle{empty}
+  \clearpage}
+
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}}
+
+\begin{document}
+
+\selectlanguage{english}
+\pagestyle{plain}
+\markboth{\hfill}{\hfill}
+
+\begin{titlepage}
+%\begin{flushright}
+%\large {\emph {I'll make my own bandbook — no blackjack, lots of hookers}} \\[5.0cm]
+%\end{flushright}
+\leavevmode \\[7.0cm]
+\begin{center}
+\includegraphics[width=0.6\textwidth]{./pics/bayan.jpg} \\[1.5cm]
+\Huge {\scshape \bfseries Bookmax}\\[0.5cm]
+\large {\sc {Max Deineko}}
+\vfill
+{\large development snapshot}\\
+\large \today
+\leavevmode \\[2.0cm]
+\end{center}
+\end{titlepage}
+\clearpage
+
+
+\addpic{./pics/russia-01_bw.jpg}{Тёплый ламповый звук}
+\tableofcontents
+\clearpage
+
+\addscore{./pdf/A Nam Vse Ravno.pdf}{A Nam Vse Ravno}
+\addscore{./pdf/Altitude 7000.pdf}{Altitude 7000}
+%TODO
+%\addscore{./pdf/Auto_Waltz.pdf}{Auto Waltz}
+%\addblank
+\addpic{./pics/russia-02_bw.jpg}{}
+\addscore{./pdf/Chto-to Cigareta Gasnet.pdf}{Chto-to Cigareta Gasnet}
+\addscore{./pdf/Douce Joie.pdf}{Douce Joie}
+%\addblank
+\addpic{./pics/russia-03_bw.jpg}{}
+\addscore{./pdf/Eto za Oknom Rassvet.pdf}{Eto Za Oknom Rassvet}
+\addscore{./pdf/Flambee Montalbanaise.pdf}{Flambée Montalbanaise}
+%\addblank
+\addpic{./pics/russia-04_bw.jpg}{}
+\addscore{./pdf/Fourty-Two Minutes.pdf}{Fourty-Two Minutes}
+\addscore{./pdf/Fou Rire.pdf}{Fou Rire}
+%\addblank
+\addpic{./pics/russia-05_bw.jpg}{}
+\addscore{./pdf/Girl in a Chintz Dress.pdf}{Girl in a Chintz Dress}
+\addscore{./pdf/Indifference.pdf}{Indifférence}
+\addscore{./pdf/Ja Vizhu.pdf}{Ja Vizhu}
+\addscore{./pdf/Ochi Chernie.pdf}{Ochi Chernie}
+\addscore{./pdf/Oj Oj Oj.pdf}{Oj Oj Oj}
+\addscore{./pdf/Orange Tie.pdf}{Orange Tie}
+\addscore{./pdf/Resnitzy.pdf}{Resnitzy}
+%TODO
+%\addscore{./pdf/Russian_Bossa.pdf}{Russian Bossa}
+%TODO
+%\addscore{./pdf/Tramwaj.pdf}{Tramwaj}
+\addscore{./pdf/Vasja.pdf}{Vasja}
+%\addblank
+\addpic{./pics/russia-07_bw.jpg}{}
+\addscore{./pdf/The Way I Walk.pdf}{The Way I Walk}
+
+\begin{center}
+%\cleardoublepage
+\thispagestyle{empty}
+\leavevmode \\
+\vfill
+{\small
+This page intentionally left blank.
+}
+\end{center}
+
+\end{document}
